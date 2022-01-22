@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Check-Symptoms-Page
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+      
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserHome">
+                          <i class="material-icons">dashboard</i>
+                          <p>Home Page</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserProfile">
+                          <i class="material-icons">person</i>
+                          <p>Your Profile</p>
+                      </a>
+                  </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" href="Symptoms">
+                          <i class="material-icons">integration_instructions</i>
+                          <p>Diagnosis</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="BookAppointment">
+                          <i class="material-icons">book_online</i>
+                          <p>Appointment</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="BookedAppointments">
+                        <i class="material-icons">book_online</i>
+                        <p>Booked Appointments</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="Prescriptions">
+                        <i class="material-icons">book_online</i>
+                        <p>Prescriptions</p>
+                    </a>
+                </li>
+                  
+                  <li class="nav-item ">
+                    <a class="nav-link " href="NearbyClinics">
+                        <i class="material-icons">local_hospital</i>
+                        <p>Nearby Clinics</p>
+                    </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/logout">
+                          <i class="material-icons">logout</i>
+                          <p>Logout</p>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="UserHome">Bloom</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>                    
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Symptoms</h4>
+                                    <p class="card-category">Select symptoms you are having right now</p>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="profile">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <!-- one symptom starts here -->
+                                                        <!-- sympoms change krne hai according to dataset -->
+                                                        {% for i in dict_symp_tup %}
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="{{i}}" name="{{i}}">
+                                                                        <span class="form-check-sign">
+                                                                            <span class="check"></span>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>{{i}}</td>
+
+                                                        </tr>
+                                                        {% endfor %}
+                                                        <!-- one symptom ends here -->
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <input type="submit" class="btn btn-primary pull-right" value="Confirm">
+                                        <!-- <button type="submit" class="btn btn-primary pull-right"><a style="color: white;" href="Diagnosis">Confirm</a></button> -->
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </footer>
+        </div>
+    </div>
+    
+    <!--   Core JS Files   -->
+    <script src="/static/js/core/jquery.min.js"></script>
+    <script src="/static/js/core/popper.min.js"></script>
+    <script src="/static/js/core/bootstrap-material-design.min.js"></script>
+    <script src="/static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Plugin for the momentJs  -->
+    <script src="/static/js/plugins/moment.min.js"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="/static/js/plugins/sweetalert2.js"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="/static/js/plugins/jquery.validate.min.js"></script>
+    
+    <script src="/static/js/plugins/jquery.bootstrap-wizard.js"></script>
+    
+    <script src="/static/js/plugins/bootstrap-selectpicker.js"></script>
+    
+    <script src="/static/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    
+    <script src="/static/js/plugins/jquery.dataTables.min.js"></script>
+    
+    <script src="/static/js/plugins/bootstrap-tagsinput.js"></script>
+    
+    <script src="/static/js/plugins/jasny-bootstrap.min.js"></script>
+   
+    <script src="/static/js/plugins/fullcalendar.min.js"></script>
+    
+    <script src="/static/js/plugins/nouislider.min.js"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="/static/js/plugins/arrive.min.js"></script>
+    
+    <!-- Chartist JS -->
+    <script src="/static/js/plugins/chartist.min.js"></script>
+    
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/static/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+    
+</body>
+
+</html>

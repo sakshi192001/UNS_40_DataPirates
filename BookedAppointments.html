@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/apple-icon.png">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Doctor's schedule-Page
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+      
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserHome">
+                          <i class="material-icons">dashboard</i>
+                          <p>Home Page</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserProfile">
+                          <i class="material-icons">person</i>
+                          <p>Your Profile</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="Symptoms">
+                          <i class="material-icons">integration_instructions</i>
+                          <p>Diagnosis</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="BookAppointment">
+                          <i class="material-icons">book_online</i>
+                          <p>Appointment</p>
+                      </a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="BookedAppointments">
+                        <i class="material-icons">book_online</i>
+                        <p>Booked Appointments</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="Prescriptions">
+                        <i class="material-icons">book_online</i>
+                        <p>Prescriptions</p>
+                    </a>
+                </li>
+                  
+                  <li class="nav-item ">
+                    <a class="nav-link " href="NearbyClinics">
+                        <i class="material-icons">local_hospital</i>
+                        <p>Nearby Clinics</p>
+                    </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/logout">
+                          <i class="material-icons">logout</i>
+                          <p>Logout</p>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <!-- navbar-width adjustment -->
+            <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="DocHome">Bloom</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                    
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-12" style="padding: 0px;">
+                            <div class="card" style="margin-left: 250px;margin-top: -15px;">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Your Appointments</h4>
+                                    <p class="card-category">Keep a track of your appointments</p>
+                                </div>
+                                <div class="card-body table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="text-warning">
+                                            <th style="color: #8e24aa;">Doctor</th>
+                                            <th style="color: #8e24aa;">Date</th>
+                                            <th style="color: #8e24aa;">Time</th>
+                                            <th style="color: #8e24aa;">Mode</th>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in user %}
+                                            
+                                            <tr>
+                                                <td>{{i['dc_name']}}</td>
+                                                <td>{{i['Date']}}</td>
+                                                <td>{{i['Time']}}</td>
+                                                
+                                                
+                                                <td><button type="submit" class="mybtn" id="sendbtn"> <a style="color: white;" href="{{i['link']}}">{{i['Mode']}}</a> </button>
+                                                </td>
+                                            </tr>
+                                           
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--   Core JS Files   -->
+        <script src="/static/jquery.min.js"></script>
+        <script src="/static/popper.min.js"></script>
+        <script src="/static/bootstrap-material-design.min.js"></script>
+        <script src="/static/perfect-scrollbar.jquery.min.js"></script>
+        <!-- Plugin for the momentJs  -->
+        <script src="/static/moment.min.js"></script>
+        <!--  Plugin for Sweet Alert -->
+        <script src="/static/sweetalert2.js"></script>
+        <!-- Forms Validations Plugin -->
+        <script src="/static/jquery.validate.min.js"></script>
+        
+        <script src="/static/jquery.bootstrap-wizard.js"></script>
+        
+        <script src="/static/bootstrap-selectpicker.js"></script>
+        
+        <script src="/static/bootstrap-datetimepicker.min.js"></script>
+       
+        <script src="/static/jquery.dataTables.min.js"></script>
+       
+        <script src="/static/bootstrap-tagsinput.js"></script>
+        
+        <script src="/static/jasny-bootstrap.min.js"></script>
+        
+        <script src="/static/fullcalendar.min.js"></script>
+        
+        
+        <script src="/static/nouislider.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+        <!-- Library for adding dinamically elements -->
+        <script src="/static/arrive.min.js"></script>
+       
+        <!-- Chartist JS -->
+        <script src="/static/chartist.min.js"></script>
+        
+        <script src="/static/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+        
+</body>
+
+</html>

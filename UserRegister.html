@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+   User-Register-page
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  
+  <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <!-- <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+     
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item ">
+          <a class="nav-link" href="/">
+            <i class="material-icons">logout</i>
+            <p>Home Page</p>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div> -->
+  
+      <!-- Navbar -->
+      <!-- <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="/">Bloom</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          
+        </div>
+      </nav> -->
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div>
+            <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0"
+                src="/static/purple.png" alt="image">
+        </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card" style="margin-left: 240px;margin-top: 75px;">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Register</h4>
+                  <p class="card-category">Fill your details</p>
+                </div>
+                <div class="card-body">
+                  <form method="POST" >
+                    <p style=" margin: 10px 0px 5px 0px; width: 200px;" class="muted-text"> User-type:<br>
+                      
+                      <input type="radio" id="age1" name="age" value="30" style="margin-left: 2px;" checked>
+                      <label for="type1" >
+                        <a link href="UserRegister">Common User</a>
+                      </label>
+                      
+                      <input type="radio" id="age2" name="age" value="60" style="margin-left: 17px;">
+                      <label for="type2">
+                        <a link href="DoctorRegister">Doctor</a>
+                      </label>
+                      
+                    </p>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input name="Username" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Full Name</label>
+                          <input name="FullName" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Password</label>
+                          <input name="Password" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+
+                    
+                    
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Weight</label>
+                          <input name="Weight" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Gender</label>
+                          <input name="Gender" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Height</label>
+                          <input name="Height" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Address</label>
+                          <input name="Address" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Contact Number</label>
+                          <input name="Contact" type="number" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Allergies</label>
+                          <input name="Allergies" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Medical Conditions</label>
+                          <input name="MedConditions" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    {{ msg }}
+                    <input type="submit" class="btn btn-primary pull-right" value="Register">
+                    <!-- <button type="submit" class="btn btn-primary pull-right">Register</button> -->
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </footer>
+    </div>
+  
+  
+  <!--   Core JS Files   -->
+  <script src="/static/jquery.min.js"></script>
+  <script src="/static/popper.min.js"></script>
+  <script src="/static/bootstrap-material-design.min.js"></script>
+  <script src="/static/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="/static/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="/static/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="/static/jquery.validate.min.js"></script>
+  
+  <script src="/static/jquery.bootstrap-wizard.js"></script>
+ 
+  <script src="/static/bootstrap-selectpicker.js"></script>
+  
+  <script src="/static/bootstrap-datetimepicker.min.js"></script>
+  
+  <script src="/static/jquery.dataTables.min.js"></script>
+  
+  <script src="/static/bootstrap-tagsinput.js"></script>
+  
+  <script src="/static/jasny-bootstrap.min.js"></script>
+  
+  <script src="/static/fullcalendar.min.js"></script>
+  
+  <script src="/static/jquery-jvectormap.js"></script>
+  
+  <script src="/static/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="/static/arrive.min.js"></script>
+  
+  <!-- Chartist JS -->
+  <script src="/static/chartist.min.js"></script>
+ 
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static`/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+  
+</body>
+
+</html>
