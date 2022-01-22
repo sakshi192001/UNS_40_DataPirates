@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <link href="/static/style.css" rel="stylesheet" />
+    <title>Dependent Dropdown with Search Box using Python Flask jQuery, Ajax, and MySQLdb Database</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="UserHome">
+                            <i class="material-icons">dashboard</i>
+                            <p>Home Page</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="UserProfile">
+                            <i class="material-icons">person</i>
+                            <p>Your Profile</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Symptoms">
+                            <i class="material-icons">integration_instructions</i>
+                            <p>Diagnosis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="BookAppointment">
+                            <i class="material-icons">book_online</i>
+                            <p>Appointment</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="BookedAppointments">
+                            <i class="material-icons">book_online</i>
+                            <p>Booked Appointments</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Prescriptions">
+                            <i class="material-icons">book_online</i>
+                            <p>Prescriptions</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link " href="NearbyHospitals">
+                            <i class="material-icons">local_hospital</i>
+                            <p>Nearby Hospitals</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/logout">
+                            <i class="material-icons">logout</i>
+                            <p>Logout</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="UserHome">Cure-o-city</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card"  style="margin-left: 180px;height: 400px;">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Book Appointment </h4>
+                                    <p class="card-category">Fill the details</p>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST">
+                                       
+                                        <div class="row" style="margin-top:25px;">
+                                            <div class="col-md-4" >
+                                                <div class="form-group" style="text-transform: capitalize;">
+                                                    <label class="bmd-label-floating" >Select Hospital</label>
+                                                    <select style="background-color: white;text-transform: capitalize" name="Hospital" id="car_brand"
+                                                        class="form-control" >
+                                                        <option style="text-transform: capitalize;">Select an option</option>
+                                                        {% for row in carbrands %}
+                                                        <option style="text-transform: capitalize;" value="{{row.hosp_id}}">{{row.hosp_name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                <label class="bmd-label-floating">Select Doctor</label>
+                                                <select name="Doctor" id="car_models"
+                                                    class="form-control" > </select>
+                                                </div>
+                                            </div>
+
+                                          
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Appointment Mode</label>
+                                                    <select name="Mode" class="form-control">
+                                                        <option>Select option</option>
+                                                        <option>Online </option>
+                                                        <option>Offline </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+ 
+                                        <div class="row" style="margin-top:30px;">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Date</label>
+                                                    <input name="Date" type="date" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Book a slot</label>
+                                                    <!-- Available slots list will go in this -->
+                                                    <select name="Time" class="form-control">
+                                                        <option>Select Option</option>
+                                                        <option>11:00 AM </option>
+                                                        <option>1:00 PM </option>
+                                                        <option>3:00 PM </option>
+                                                        <option>9:00 PM </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary pull-right">
+                                        <button  class="btn btn-primary pull-left"> <a style="color: white;" href="UserHome">Back</a></button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </footer>
+            </div>
+            <div class="container">
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#car_brand").selectpicker();
+
+            $("#car_models").selectpicker();
+
+            function load_data(type, category_id) {
+                $.ajax({
+                    url: "/carbrand",
+                    method: "POST",
+                    data: { type: type, category_id: category_id },
+                    dataType: "json",
+                    success: function (data) { //alert(category_id)
+                        var html = "";
+                        for (var count = 0; count < data.length; count++) {
+                            html += '<option value="' + data[count].dc_id + '">' + data[count].name + '</option>';
+                        }
+                        if (type == "carData") {
+                            $("#car_brand").html(html);
+                            $("#car_brand").selectpicker("refresh");
+                        } else {
+                            $("#car_models").html(html);
+                            $("#car_models").selectpicker("refresh");
+                        }
+                    },
+                });
+            }
+
+            $(document).on("change", "#car_brand", function () {
+                var category_id = $("#car_brand").val();
+                load_data("carModeldata", category_id);
+            });
+        });
+    </script>
+
+
+        
+
+</body>
+
+</html>

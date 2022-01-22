@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+   User-profile
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  
+  <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+      
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item ">
+                <a class="nav-link" href="UserHome">
+                    <i class="material-icons">dashboard</i>
+                    <p>Home Page</p>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="UserProfile">
+                    <i class="material-icons">person</i>
+                    <p>Your Profile</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="Symptoms">
+                    <i class="material-icons">integration_instructions</i>
+                    <p>Diagnosis</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="BookAppointment">
+                    <i class="material-icons">book_online</i>
+                    <p>Appointment</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="BookedAppointments">
+                  <i class="material-icons">book_online</i>
+                  <p>Booked Appointments</p>
+              </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="Prescriptions">
+                <i class="material-icons">book_online</i>
+                <p>Prescriptions</p>
+            </a>
+        </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link " href="NearbyHospitals">
+                  <i class="material-icons">local_hospital</i>
+                  <p>Nearby Hospitals</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/logout">
+                    <i class="material-icons">logout</i>
+                    <p>Logout</p>
+                </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  <div class="main-panel">
+      <!-- Navbar -->
+      <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="UserHome">Cure-o-city</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card" style="margin-left: 190px;margin-top:-15px;">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Profile</h4>
+                  <p class="card-category">View can View your profile details</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <h5 class="form-control">{{user['Username']}}</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Full Name</label>
+                          <h5 class="form-control">{{user['FullName']}}</h5>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Weight</label>
+                          <h5 class="form-control">{{user['Weight']}}</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Gender</label>
+                          <h5 class="form-control">{{user['Gender']}}</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Height</label>
+                          <h5 class="form-control">{{user['Height']}}</h5>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Address</label>
+                          <h5 class="form-control">{{user['Address']}}</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Contact Number</label>
+                          <h5 class="form-control">{{user['Contact']}}</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Allergies</label>
+                          <h5 class="form-control">{{user['Allergies']}} </h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Medical Conditions</label>
+                          <h5 class="form-control">{{user['MedConditions']}}</h5>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-4"> -->
+                        <!-- <div class="form-group">
+                          <label class="bmd-label-floating">Prescription</label>
+                          <h5 class="form-control">Isme bhi kya krna hai confirm nahi hai</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-4" style=" width: 150px; float: left;" >
+                        <div class="form-group" >
+                          <label class="bmd-label-floating"style="width: 130px; float: left;" >Appointment Meet </label>
+                          <h5 class="form-control" style="width: 130px; float: left;">Appointment Details</h5>
+                        </div> -->
+                        
+                      <!-- </div>  -->
+                      <!-- <div style="margin: 8px 5px 5px 10px; float: right;">
+                        <button type="submit" class="btn btn-primary pull-right" style="margin: 5px 3px 5px 10px; padding: 10px 22px 10px 22px; "><a
+                          href="" style="color: white; float: right;">Join Meet</a></button>
+                      </div> -->
+                      
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-left"><a
+                      href="/UpdateUserProfile" style="color: white;">Update</a></button>
+                      <button type="submit" class="btn btn-primary pull-right"><a
+                        href="/" style="color: white;">Logout</a></button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  <!--   Core JS Files   -->
+  <script src="/static/jquery.min.js"></script>
+  <script src="/static/popper.min.js"></script>
+  <script src="/static/bootstrap-material-design.min.js"></script>
+  <script src="/static/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="/static/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="/static/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="/static/jquery.validate.min.js"></script>
+  
+  <script src="/static/jquery.bootstrap-wizard.js"></script>
+  
+  <script src="/static/bootstrap-selectpicker.js"></script>
+  
+  <script src="/static/bootstrap-datetimepicker.min.js"></script>
+  
+  <script src="/static/jquery.dataTables.min.js"></script>
+  
+  <script src="/static/bootstrap-tagsinput.js"></script>
+  
+  <script src="./static/jasny-bootstrap.min.js"></script>
+  
+  <script src="/static/fullcalendar.min.js"></script>
+  
+  
+  <script src="/static/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="/static/arrive.min.js"></script>
+  
+  <!-- Chartist JS -->
+  <script src="/static/chartist.min.js"></script>
+ 
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+  
+</body>
+
+</html>
