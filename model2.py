@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore")
 
 IMAGE_SIZE = [224, 224]
 
-train_path = 'C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/drive-download-20220123T025345Z-001/diag-train'
-valid_path = 'C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/drive-download-20220123T025345Z-001/diag-test'
+train_path = 'C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/train-20220123T025302Z-001/train'
+valid_path = 'C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/test/test'
 
 
 vgg = VGG16(input_shape=IMAGE_SIZE + [3], weights='imagenet', include_top=False)
@@ -26,10 +26,10 @@ vgg = VGG16(input_shape=IMAGE_SIZE + [3], weights='imagenet', include_top=False)
 for layer in vgg.layers:
     layer.trainable = False
 
-folders = glob('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/drive-download-20220123T025345Z-001/diag-train/*')
+folders = glob('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/train-20220123T025302Z-001/train/*')
 
 x = Flatten()(vgg.output)
-prediction = Dense(7, activation='softmax')(x)
+prediction = Dense(2, activation='softmax')(x)
 
 model = Model(inputs=vgg.input, outputs=prediction)
 model.summary()
@@ -49,12 +49,12 @@ train_datagen = ImageDataGenerator(rescale = 1./255,
 
 test_datagen = ImageDataGenerator(rescale = 1./255)
 
-training_set = train_datagen.flow_from_directory('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/drive-download-20220123T025345Z-001/diag-train',
+training_set = train_datagen.flow_from_directory('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/train-20220123T025302Z-001/train',
                                                  target_size = (224, 224),
                                                  batch_size = 32,
                                                  class_mode = 'categorical')
 
-test_set = test_datagen.flow_from_directory('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/drive-download-20220123T025345Z-001/diag-test',
+test_set = test_datagen.flow_from_directory('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/test/test',
                                             target_size = (224, 224),
                                             batch_size = 32,
                                             class_mode = 'categorical')                                                 
@@ -70,37 +70,8 @@ r = model.fit_generator(
   validation_steps=len(test_set)
 )
 
-model11=model.save('model1.h5')
+model12=model.save('model2.h5')
 
 
-from keras.preprocessing.image import load_img
-from keras.preprocessing.image import img_to_array
-image1 = load_img('C:/Users/Isha Patel/OneDrive/Desktop/PROJECTS/Evathon/evathon/drive-download-20220123T025345Z-001/diag-train/acanthosis-nigricans-train(1).jpg', target_size=(224, 224))
-image1 = img_to_array(image1)
-# reshape data for the model
-print(image1.shape)
-image1 = image1.reshape((1, image1.shape[0], image1.shape[1], image1.shape[2]))
-print(image1.shape)
-# prepare the image for the VGG model
-image1 = preprocess_input(image1)
-yhat = model.predict(image1, verbose=0)[0]
-print(yhat)
-print(yhat.max())
 
-obj_name=''
-if yhat[0] == yhat.max():
-  obj_name = 'acne scars'
-elif yhat[1] == yhat.max():
-  obj_name = 'alopecia areata'
-elif yhat[2] == yhat.max():
-  obj_name = 'melasma'
-elif yhat[3] == yhat.max():
-  obj_name = 'vitiligo'
-elif yhat[4] == yhat.max():
-  obj_name = 'warts'
-elif yhat[5] == yhat.max():
-  obj_name = 'acanthosis nigricans'
-elif yhat[6] == yhat.max():
-  obj_name = 'acne'    
 
-print(obj_name)
